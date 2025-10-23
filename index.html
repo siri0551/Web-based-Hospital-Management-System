@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Project Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            min-width: 120px;
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .login-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .login-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-success {
+            background: #2ed573;
+        }
+        
+        .btn-success:hover {
+            background: #26d467;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Hospital Management System</h1>
+            <p>A comprehensive MERN stack application for managing hospital operations</p>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Project Overview</h2>
+            <p>This Hospital Management System is a full-stack web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js). It provides a complete solution for managing hospital operations including patient records, doctor schedules, appointments, and administrative tasks.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👨⚕️</div>
+                <h3>Doctor Management</h3>
+                <p>Manage doctor profiles, specializations, schedules, and appointment tracking</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Patient Records</h3>
+                <p>Comprehensive patient management with medical history and appointment booking</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Appointment System</h3>
+                <p>Real-time appointment scheduling with status tracking and management</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Role-Based Access</h3>
+                <p>Secure authentication with Admin, Doctor, and Patient role permissions</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🚀 Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h4>Frontend</h4>
+                    <p>React.js<br>CSS3<br>Responsive Design</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Backend</h4>
+                    <p>Node.js<br>Express.js<br>RESTful APIs</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Database</h4>
+                    <p>MongoDB<br>Mongoose ODM<br>Data Modeling</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Security</h4>
+                    <p>JWT Authentication<br>Password Hashing<br>Role-based Access</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>👥 User Roles & Demo Accounts</h2>
+            <div class="login-cards">
+                <div class="login-card">
+                    <h4>🔐 Admin</h4>
+                    <p><strong>Email:</strong> admin@hospital.com</p>
+                    <p><strong>Password:</strong> password123</p>
+                    <p>Full system access and management</p>
+                </div>
+                <div class="login-card">
+                    <h4>👨⚕️ Doctor</h4>
+                    <p><strong>Email:</strong> john.smith@hospital.com</p>
+                    <p><strong>Password:</strong> password123</p>
+                    <p>Appointment management and patient care</p>
+                </div>
+                <div class="login-card">
+                    <h4>👤 Patient</h4>
+                    <p><strong>Email:</strong> alice.wilson@email.com</p>
+                    <p><strong>Password:</strong> password123</p>
+                    <p>Book appointments and view history</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 How to Run the Project</h2>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                <h4>Backend Setup:</h4>
+                <code style="display: block; margin: 0.5rem 0;">cd backend</code>
+                <code style="display: block; margin: 0.5rem 0;">npm install</code>
+                <code style="display: block; margin: 0.5rem 0;">npm run dev</code>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                <h4>Frontend Setup:</h4>
+                <code style="display: block; margin: 0.5rem 0;">cd frontend</code>
+                <code style="display: block; margin: 0.5rem 0;">npm install</code>
+                <code style="display: block; margin: 0.5rem 0;">npm start</code>
+            </div>
+            <p><strong>Access:</strong> Frontend at <code>http://localhost:3000</code> | Backend API at <code>http://localhost:5000</code></p>
+        </div>
+
+        <div class="demo-section">
+            <h2>✨ Key Features</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0;">✅ User Authentication & Authorization</li>
+                <li style="padding: 0.5rem 0;">✅ Role-based Dashboard Interfaces</li>
+                <li style="padding: 0.5rem 0;">✅ Real-time Appointment Management</li>
+                <li style="padding: 0.5rem 0;">✅ Patient Record Management</li>
+                <li style="padding: 0.5rem 0;">✅ Doctor Profile & Schedule Management</li>
+                <li style="padding: 0.5rem 0;">✅ Responsive Design for All Devices</li>
+                <li style="padding: 0.5rem 0;">✅ Secure API with JWT Authentication</li>
+                <li style="padding: 0.5rem 0;">✅ MongoDB Database Integration</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="frontend/public/index.html" class="btn btn-success" style="margin: 0.5rem;">🚀 Launch Application</a>
+            <a href="USER_GUIDE.md" class="btn" style="margin: 0.5rem;">📖 View User Guide</a>
+            <a href="SETUP.md" class="btn" style="margin: 0.5rem;">⚙️ Setup Instructions</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Hospital Management System | Built with MERN Stack</p>
+            <p>A comprehensive solution for modern healthcare management</p>
+        </div>
+    </div>
+</body>
+</html>
