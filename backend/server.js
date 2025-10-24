@@ -5,8 +5,13 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://resplendent-dusk-ab5fd6.netlify.app', // Replace with your specific client URL
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+
+// Enable CORS only for specific origin
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection
