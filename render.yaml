@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: hospital-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: hospital-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+    
+  - type: web
+    name: hospital-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: hospital-backend
+          property: host
+
+databases:
+  - name: hospital-db
+    databaseName: hospital_management
+    user: hospital_user

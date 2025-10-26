@@ -1,9 +1,8 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api';
+import API_CONFIG from '../config/api';
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: API_CONFIG.API_BASE,
 });
 
 api.interceptors.request.use((config) => {

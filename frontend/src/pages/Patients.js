@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { doctorsAPI, appointmentsAPI, patientsAPI } from '../services/api';
+import { doctorsAPI, appointmentsAPI, patientsAPI, authAPI } from '../services/api';
 
 const Patients = () => {
   const [doctors, setDoctors] = useState([]);
@@ -79,20 +79,15 @@ const Patients = () => {
       e.preventDefault();
       try {
         // First create user account
-        const userResponse = await fetch('/api/auth/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: newPatientForm.name,
-            email: newPatientForm.email,
-            password: 'patient123', // Default password
-            role: 'patient',
-            phone: newPatientForm.phone
-          })
+        const userResponse = await authAPI.register({
+          name: newPatientForm.name,
+          email: newPatientForm.email,
+          password: 'patient123', // Default password
+          role: 'patient',
+          phone: newPatientForm.phone
         });
         
-        if (!userResponse.ok) throw new Error('Failed to create user');
-        const userData = await userResponse.json();
+        const userData = userResponse.data;
         
         // Then create patient profile
         await patientsAPI.create({
