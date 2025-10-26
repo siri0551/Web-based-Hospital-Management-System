@@ -8,11 +8,14 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
-        fromDatabase:
-          name: hospital-db
-          property: connectionString
+        sync: false
       - key: JWT_SECRET
         generateValue: true
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: hospital-frontend
+          property: host
     
   - type: web
     name: hospital-frontend
@@ -25,8 +28,3 @@ services:
           type: web
           name: hospital-backend
           property: host
-
-databases:
-  - name: hospital-db
-    databaseName: hospital_management
-    user: hospital_user
