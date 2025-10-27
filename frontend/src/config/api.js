@@ -6,4 +6,6 @@ const API_CONFIG = {
   API_BASE: `${cleanUrl}/api`
 };
 
+console.log('API Configuration:', API_CONFIG);
+
 export default API_CONFIG;

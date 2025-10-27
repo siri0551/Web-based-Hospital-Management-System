@@ -19,6 +19,11 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+// Test route
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend is working!' });
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/patients', require('./routes/patients'));
