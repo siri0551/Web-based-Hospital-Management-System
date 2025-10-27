@@ -30,5 +30,21 @@ app.use('/api/patients', require('./routes/patients'));
 app.use('/api/doctors', require('./routes/doctors'));
 app.use('/api/appointments', require('./routes/appointments'));
 
+const path = require('path');
+
+// Serve frontend in production
+if (process.env.NODE_ENV === 'production') {
+  const __dirname = path.resolve();
+
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+  app.get('*', (req, res) => {
+    if (!req.url.startsWith('/api')) {
+      res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+    }
+  });
+}
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
