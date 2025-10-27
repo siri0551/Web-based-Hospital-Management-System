@@ -5,46 +5,45 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.FRONTEND_URL 
-    : 'http://localhost:3000',
-  credentials: true
-}));
+// Allowed frontend URLs for development and production
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://web-based-hospital-management-system-4.onrender.com'
+];
+
+// CORS configuration
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.log('CORS blocked:', origin);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  })
+);
+
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
+mongoose
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+  .catch(err => console.log('MongoDB error:', err));
 
 // Test route
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Backend is working!' });
 });
 
-// Routes
+// API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/patients', require('./routes/patients'));
 app.use('/api/doctors', require('./routes/doctors'));
 app.use('/api/appointments', require('./routes/appointments'));
 
-const path = require('path');
-
-// Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  const __dirname = path.resolve();
-
-  app.use(express.static(path.join(__dirname, 'frontend/build')));
-
-  app.get('*', (req, res) => {
-    if (!req.url.startsWith('/api')) {
-      res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-    }
-  });
-}
-
-
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
