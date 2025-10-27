@@ -107,6 +107,15 @@ const Login = ({ setUser }) => {
                 onChange={(e) => setRegisterData({...registerData, phone: e.target.value})}
               />
             </div>
+            <div className="form-group">
+              <label>Address</label>
+              <input
+                type="text"
+                value={registerData.address}
+                onChange={(e) => setRegisterData({...registerData, address: e.target.value})}
+                required
+              />
+            </div>
             <button type="submit" className="btn">Register</button>
           </form>
         )}
