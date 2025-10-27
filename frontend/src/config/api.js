@@ -7,5 +7,7 @@ const API_CONFIG = {
 };
 
 console.log('API Configuration:', API_CONFIG);
+console.log('Base URL:', API_CONFIG.BASE_URL);
+console.log('API Base:', API_CONFIG.API_BASE);
 
 export default API_CONFIG;
